@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "com.x_meteor.kotlindemo"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+        ndk {
+
+            //APP的build.gradle设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 自定义输出配置
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "kotlinmvp_v${variant.versionName}_${variant.name}.apk"
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    productFlavors {
+
+    }
+
+    dexOptions {
+        jumboMode true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Support库
+    implementation rootProject.ext.supportLibs
+    // 网络请求库
+    implementation rootProject.ext.networkLibs
+    // RxJava2
+    implementation rootProject.ext.rxJavaLibs
+    implementation rootProject.ext.otherLibs
+    // APT dependencies(Kotlin内置的注解处理器)
+    kapt rootProject.ext.annotationProcessorLibs
+
+    // 底部菜单
+    implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    //kotlin 支持库
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //GlideOkHttp
+    implementation(rootProject.ext.glideOkhttp) {
+        exclude group: 'glide-parent'
+    }
+
+    //leakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //Logger2
+    implementation 'com.orhanobut:logger:2.1.1'
+
+    //MultipleStatusView
+    implementation 'com.classic.common:multiple-status-view:1.5.1'
+
+    //动态权限请求
+    implementation 'com.hjq:xxpermissions:5.0'
+
+    //SystemBarTint对4.4版本状态栏颜色进行设置
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+}
