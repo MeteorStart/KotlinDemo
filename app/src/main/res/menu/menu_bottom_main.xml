@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/btn_handpick"
+            android:checked="true"
+            android:icon="@drawable/select_handpick_main"
+            android:title="@string/main_handpick"
+            />
+
+    <item
+            android:id="@+id/btn_find"
+            android:title="@string/main_find"
+            android:icon="@drawable/select_find_main"
+            />
+    <item
+            android:id="@+id/btn_hot"
+            android:icon="@drawable/select_hot_main"
+            android:title="@string/hot_title"
+            />
+
+    <item
+            android:id="@+id/btn_my"
+            android:icon="@drawable/select_my_main"
+            android:title="@string/main_my"
+            />
+</menu>

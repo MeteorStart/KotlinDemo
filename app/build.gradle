@@ -60,7 +60,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -76,12 +75,12 @@ dependencies {
     // APT dependencies(Kotlin内置的注解处理器)
     kapt rootProject.ext.annotationProcessorLibs
 
-    // 底部菜单
-    implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
-        exclude group: 'com.android.support', module: 'support-v4'
-    }
-    //kotlin 支持库
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //smartRefreshLayout 下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+
     //GlideOkHttp
     implementation(rootProject.ext.glideOkhttp) {
         exclude group: 'glide-parent'
@@ -102,4 +101,14 @@ dependencies {
 
     //SystemBarTint对4.4版本状态栏颜色进行设置
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    //一个增强BottomNavigationView的安卓库
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
+
+
+//    // 底部菜单
+//    implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
+//        exclude group: 'com.android.support', module: 'support-v4'
+//    }
+    //kotlin 支持库
 }

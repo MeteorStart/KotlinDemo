@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Kotlin Mvp Demo</string>
 
+    <string name="main_handpick">精选</string>
+    <string name="main_find">发现</string>
+    <string name="main_hot">热门</string>
+    <string name="main_my">我的</string>
+
     <string name="video_offline">缓存</string>
     <string name="video_attention">+ 关注</string>
     <string name="video_end">- The End-</string>
