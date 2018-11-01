@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.PagerAdapter
+
+
 
 
 /**
@@ -13,7 +17,7 @@ import android.support.v4.app.FragmentPagerAdapter
  * 如果需要处理有很多页，并且数据动态性较大、占用内存较多的情况，
  * 应该使用FragmentStatePagerAdapter。
  */
-open class BaseFragmentAdapter : FragmentPagerAdapter {
+open class BaseFragmentAdapter : FragmentStatePagerAdapter {
 
     private var fragmentList: List<Fragment>? = ArrayList()
     private var mTitles: List<String>? = null
@@ -43,8 +47,17 @@ open class BaseFragmentAdapter : FragmentPagerAdapter {
         notifyDataSetChanged()
     }
 
+    /**
+     * ViewPager的tab显示(如果不重写此方法,tab上不会显示自己绑定的标题数组,也就是说tab上边什么也不会显示)
+     * @param position
+     * @return
+     */
     override fun getPageTitle(position: Int): CharSequence {
         return if (null != mTitles) mTitles!![position] else ""
+    }
+
+    override fun getItemPosition(`object`: Any): Int {
+        return PagerAdapter.POSITION_NONE
     }
 
     override fun getItem(position: Int): Fragment {

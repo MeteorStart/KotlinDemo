@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/ivCoverFeed"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:background="@color/color_light_imv"
+            android:src="@mipmap/placeholder_banner"
+            android:layout_height="220dp"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+        <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher_round"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/ivAvatar"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/tvCategory"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/tvTitle"
+                    android:lines="1"
+                    android:textSize="15dp"
+                    android:textColor="@color/color_item_title"
+                    tools:text="我正在用 Kotlin 写 Android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tvTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    tools:text="a/b/c/03`18`"/>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                tools:text="#搞笑"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_darker_gray"/>
+    </RelativeLayout>
+</LinearLayout>

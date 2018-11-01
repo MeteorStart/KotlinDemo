@@ -39,8 +39,8 @@ class SplashActivity : BaseActivity() {
 
     override fun initView() {
 
-        StatusBarUtils.transparencyBar(this)
-        StatusBarUtils.StatusBarLightMode(this)
+//        StatusBarUtils.transparencyBar(this)
+//        StatusBarUtils.StatusBarLightMode(this)
 
         tv_app_name.typeface = textTypeface
         tv_splash_desc.typeface = descTypeFace

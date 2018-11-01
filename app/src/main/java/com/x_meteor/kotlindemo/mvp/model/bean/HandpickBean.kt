@@ -1,5 +1,6 @@
 package com.x_meteor.kotlindemo.mvp.model.bean
 
+import com.chad.library.adapter.base.entity.MultiItemEntity
 import java.io.Serializable
 
 /**
@@ -12,6 +13,8 @@ import java.io.Serializable
  */
 data class HandpickBean(
     val issueList: ArrayList<Issue>,
+    val bannerList: ArrayList<Issue>,
+    val hander: Issue,
     val nextPageUrl: String,
     val nextPublishTime: Long,
     val newestIssueType: String,
@@ -35,7 +38,22 @@ data class HandpickBean(
         val nextPageUrl: String
     ) {
 
-        data class Item(val type: String, val data: Data?, val tag: String) : Serializable {
+        data class Item(var type: String, val data: Data?, val tag: String) : Serializable, MultiItemEntity {
+
+            companion object {
+                const val ITEM_TYPE_BANNER = 1    //Banner 类型
+                const val ITEM_TYPE_TEXT_HEADER = 2   //textHeader
+                const val ITEM_TYPE_CONTENT = 3    //item
+            }
+
+            override fun getItemType(): Int {
+                return when {
+                    data?.dataType.equals("banner") -> ITEM_TYPE_BANNER
+                    data?.dataType.equals("textHeader") -> ITEM_TYPE_TEXT_HEADER
+                    else ->
+                        ITEM_TYPE_CONTENT
+                }
+            }
 
             data class Data(
                 val dataType: String,

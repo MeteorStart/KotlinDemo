@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'  //kapt3插件
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -74,7 +76,7 @@ dependencies {
     implementation rootProject.ext.otherLibs
     // APT dependencies(Kotlin内置的注解处理器)
     kapt rootProject.ext.annotationProcessorLibs
-
+    //kotlin 支持库
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //smartRefreshLayout 下拉刷新
@@ -105,10 +107,10 @@ dependencies {
     //一个增强BottomNavigationView的安卓库
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
 
+    //BRVAH BaseRecycleAdapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
 
-//    // 底部菜单
-//    implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
-//        exclude group: 'com.android.support', module: 'support-v4'
-//    }
-    //kotlin 支持库
+    //Banner
+    implementation 'cn.bingoogolapple:bga-banner:2.2.4@aar'
+
 }
