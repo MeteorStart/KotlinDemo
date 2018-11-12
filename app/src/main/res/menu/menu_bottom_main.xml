@@ -16,7 +16,7 @@
     <item
             android:id="@+id/btn_hot"
             android:icon="@drawable/select_hot_main"
-            android:title="@string/hot_title"
+            android:title="@string/main_hot"
             />
 
     <item

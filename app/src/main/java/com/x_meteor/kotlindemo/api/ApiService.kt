@@ -1,5 +1,6 @@
 package com.hazz.kotlinmvp.api
 
+import com.x_meteor.kotlindemo.mvp.model.bean.CategoryBean
 import com.x_meteor.kotlindemo.mvp.model.bean.HandpickBean
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -34,8 +35,8 @@ interface ApiService{
     /**
      * 获取分类
      */
-//    @GET("v4/categories")
-//    fun getCategory(): Observable<ArrayList<CategoryBean>>
+    @GET("v4/categories")
+    fun getCategory(): Observable<ArrayList<CategoryBean>>
 
     /**
      * 获取分类详情List

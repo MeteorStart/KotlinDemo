@@ -71,7 +71,7 @@ class MainActivity : BaseActivity() {
         fragments = ArrayList()
         fragments?.add(HandpickFragment.getInstance(getString(R.string.main_handpick_title)))
         fragments?.add(FindFragment.getInstance(getString(R.string.main_find_title)))
-        fragments?.add(HotFragment())
+        fragments?.add(HotFragment.getInstance(getString(R.string.main_hot_title)))
         fragments?.add(MyFragment())
 
         pagerAdapter = BaseFragmentAdapter(supportFragmentManager, fragments!!)

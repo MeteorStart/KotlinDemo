@@ -8,7 +8,7 @@
 
     <string name="main_handpick_title">每日精选</string>
     <string name="main_find_title">发现</string>
-    <string name="main_hot_title">热门</string>
+    <string name="main_hot_title">人气榜</string>
     <string name="main_my_title">我的</string>
 
     <string name="video_offline">缓存</string>

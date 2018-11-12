@@ -50,8 +50,8 @@ class FindFragment : BaseFragment() {
         tabList.add("关注")
         tabList.add("分类")
 
-        fragments.add(HandpickFragment.getInstance("首页"))
-        fragments.add(MyFragment())
+        fragments.add(FollowFragment.getInstance("关注"))
+        fragments.add(CategoryFragment.getInstance("分类"))
 
         vpFind.adapter = BaseFragmentAdapter(childFragmentManager, fragments, tabList)
         tabLayoutFind.setupWithViewPager(vpFind)

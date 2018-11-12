@@ -223,6 +223,17 @@ class ToastUtils() {
 
         }
 
+        fun showToast(content: String) {
+            if (Looper.myLooper() != null) {
+                Toast.makeText(MyApplication.context, content, Toast.LENGTH_SHORT).show()
+            } else {
+                Looper.prepare()
+                Toast.makeText(MyApplication.context, content, Toast.LENGTH_SHORT).show()
+                Looper.loop()
+            }
+
+
+        }
         fun showToast(context: Context, content: String, length: Int) {
             if (Looper.myLooper() != null) {
                 Toast.makeText(context, content, length).show()
