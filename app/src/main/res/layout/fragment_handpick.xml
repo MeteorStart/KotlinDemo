@@ -38,6 +38,7 @@
                         android:id="@+id/recyHome"
                         android:layout_width="match_parent"
                         android:clipToPadding="false"
+                        tools:listitem="@layout/item_handpic_content"
                         android:layout_height="match_parent"/>
 
             </com.classic.common.MultipleStatusView>

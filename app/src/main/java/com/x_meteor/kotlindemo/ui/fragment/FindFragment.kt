@@ -42,6 +42,7 @@ class FindFragment : BaseFragment() {
     override fun initView() {
         //状态栏透明和间距处理
         activity?.let { StatusBarUtils.darkMode(it) }
+        activity?.let { StatusBarUtils.setPaddingSmart(it, toolBarFind) }
         activity?.let { StatusBarUtils.setPaddingSmart(it, tvFindTitle) }
         activity?.let { StatusBarUtils.setPaddingSmart(it, tabLayoutFind) }
 

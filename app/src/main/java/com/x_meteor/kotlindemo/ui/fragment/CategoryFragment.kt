@@ -8,9 +8,9 @@ import android.view.View
 import com.hazz.kotlinmvp.net.exception.ErrorStatus
 import com.x_meteor.kotlindemo.R
 import com.x_meteor.kotlindemo.base.BaseFragment
-import com.x_meteor.kotlindemo.mvp.contract.RankContract
+import com.x_meteor.kotlindemo.mvp.contract.CategoryContract
 import com.x_meteor.kotlindemo.mvp.model.bean.CategoryBean
-import com.x_meteor.kotlindemo.mvp.presenter.RankPersenter
+import com.x_meteor.kotlindemo.mvp.presenter.CategoryPersenterImp
 import com.x_meteor.kotlindemo.ui.adapter.CategoryDetailAdapter
 import com.x_meteor.kotlindemo.utils.DisplayManager
 import com.x_meteor.kotlindemo.utils.ToastUtils.Companion.showToast
@@ -24,9 +24,9 @@ import kotlinx.android.synthetic.main.fragment_category.*
  * @company:
  * @email: lx802315@163.com
  */
-class CategoryFragment : BaseFragment(), RankContract.RankView {
+class CategoryFragment : BaseFragment(), CategoryContract.CategoryView {
 
-    private val mPresenter by lazy { RankPersenter() }
+    private val mPresenter by lazy { CategoryPersenterImp() }
 
     private var itemList = ArrayList<CategoryBean>()
 

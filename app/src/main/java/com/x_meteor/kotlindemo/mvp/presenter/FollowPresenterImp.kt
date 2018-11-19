@@ -13,7 +13,7 @@ import com.x_meteor.kotlindemo.mvp.model.FollowModel
  * @company:
  * @email: lx802315@163.com
  */
-class FollowPresenter : BasePresenter<FollowContract.FollowView>(), FollowContract.FollowPresenter {
+class FollowPresenterImp : BasePresenter<FollowContract.FollowView>(), FollowContract.FollowPresenter {
 
     private val followModel by lazy { FollowModel() }
 

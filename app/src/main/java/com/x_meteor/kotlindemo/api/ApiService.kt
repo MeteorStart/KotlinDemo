@@ -2,6 +2,7 @@ package com.hazz.kotlinmvp.api
 
 import com.x_meteor.kotlindemo.mvp.model.bean.CategoryBean
 import com.x_meteor.kotlindemo.mvp.model.bean.HandpickBean
+import com.x_meteor.kotlindemo.mvp.model.bean.TabInfoBean
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -53,8 +54,8 @@ interface ApiService{
     /**
      * 获取全部排行榜的Info（包括，title 和 Url）
      */
-//    @GET("v4/rankList")
-//    fun getRankList():Observable<TabInfoBean>
+    @GET("v4/rankList")
+    fun getRankList():Observable<TabInfoBean>
 
     /**
      * 获取搜索信息

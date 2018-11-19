@@ -15,7 +15,7 @@ import com.x_meteor.kotlindemo.mvp.model.bean.HandpickBean
  * @company:
  * @email: lx802315@163.com
  */
-class HandpickPresenter : BasePresenter<HandpickContract.HandpickView>(), HandpickContract.Presenter {
+class HandpickPresenterImp : BasePresenter<HandpickContract.HandpickView>(), HandpickContract.Presenter {
 
     //网络获取数据体
     private var bannerHandpickBean: HandpickBean? = null

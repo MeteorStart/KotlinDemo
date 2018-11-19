@@ -11,7 +11,7 @@ import com.x_meteor.kotlindemo.R
 import com.x_meteor.kotlindemo.base.BaseFragment
 import com.x_meteor.kotlindemo.mvp.contract.HandpickContract
 import com.x_meteor.kotlindemo.mvp.model.bean.HandpickBean
-import com.x_meteor.kotlindemo.mvp.presenter.HandpickPresenter
+import com.x_meteor.kotlindemo.mvp.presenter.HandpickPresenterImp
 import com.x_meteor.kotlindemo.ui.adapter.HandpickAdapter
 import com.x_meteor.kotlindemo.utils.StatusBarUtils
 import com.x_meteor.kotlindemo.utils.ToastUtils
@@ -29,7 +29,7 @@ import java.util.*
  */
 class HandpickFragment : BaseFragment(), HandpickContract.HandpickView {
 
-    private val mPresenter by lazy { HandpickPresenter() }
+    private val mPresenter by lazy { HandpickPresenterImp() }
 
     private var mTitle: String? = null
 

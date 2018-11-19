@@ -72,7 +72,7 @@ class MainActivity : BaseActivity() {
         fragments?.add(HandpickFragment.getInstance(getString(R.string.main_handpick_title)))
         fragments?.add(FindFragment.getInstance(getString(R.string.main_find_title)))
         fragments?.add(HotFragment.getInstance(getString(R.string.main_hot_title)))
-        fragments?.add(MyFragment())
+        fragments?.add(MyFragment.getInstance(getString(R.string.main_my_title)))
 
         pagerAdapter = BaseFragmentAdapter(supportFragmentManager, fragments!!)
         //为viewpager设置适配器

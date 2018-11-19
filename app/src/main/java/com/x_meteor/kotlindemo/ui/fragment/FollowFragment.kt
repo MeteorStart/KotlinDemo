@@ -7,18 +7,11 @@ import com.x_meteor.kotlindemo.R
 import com.x_meteor.kotlindemo.base.BaseFragment
 import com.x_meteor.kotlindemo.mvp.contract.FollowContract
 import com.x_meteor.kotlindemo.mvp.model.bean.HandpickBean
-import com.x_meteor.kotlindemo.mvp.presenter.FollowPresenter
+import com.x_meteor.kotlindemo.mvp.presenter.FollowPresenterImp
 import com.x_meteor.kotlindemo.ui.adapter.FollowAdapter
-import com.x_meteor.kotlindemo.utils.StatusBarUtils
 import com.x_meteor.kotlindemo.utils.ToastUtils
-import kotlinx.android.synthetic.main.fragment_find.*
 import kotlinx.android.synthetic.main.fragment_follow.*
-import android.nfc.tech.MifareUltralight.PAGE_SIZE
-import com.x_meteor.kotlindemo.R.id.mRecyclerView
-import com.chad.library.adapter.base.BaseQuickAdapter
-import android.nfc.tech.MifareUltralight.PAGE_SIZE
 import android.support.v7.widget.RecyclerView
-import com.x_meteor.kotlindemo.R.id.mRecyclerView
 
 
 /**
@@ -35,7 +28,7 @@ class FollowFragment : BaseFragment(), FollowContract.FollowView {
 
     private var itemList = ArrayList<HandpickBean.Issue.Item>()
 
-    private val mPresenter by lazy { FollowPresenter() }
+    private val mPresenter by lazy { FollowPresenterImp() }
 
     private val mFollowAdapter by lazy { activity?.let { FollowAdapter(R.layout.item_follow, itemList) } }
 
