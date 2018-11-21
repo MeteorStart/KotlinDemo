@@ -21,7 +21,6 @@ android {
             }
         }
         ndk {
-
             //APP的build.gradle设置支持的SO库架构
             abiFilters 'armeabi', 'armeabi-v7a', 'x86'
         }
@@ -73,20 +72,21 @@ dependencies {
     implementation rootProject.ext.networkLibs
     // RxJava2
     implementation rootProject.ext.rxJavaLibs
+    //Glide
     implementation rootProject.ext.otherLibs
     // APT dependencies(Kotlin内置的注解处理器)
     kapt rootProject.ext.annotationProcessorLibs
     //kotlin 支持库
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //smartRefreshLayout 下拉刷新
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
-
     //GlideOkHttp
     implementation(rootProject.ext.glideOkhttp) {
         exclude group: 'glide-parent'
     }
+
+    //smartRefreshLayout 下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
 
     //leakCanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
@@ -113,4 +113,6 @@ dependencies {
     //Banner
     implementation 'cn.bingoogolapple:bga-banner:2.2.4@aar'
 
+    // 视屏播放器
+    implementation 'com.shuyu:GSYVideoPlayer:2.1.1'
 }

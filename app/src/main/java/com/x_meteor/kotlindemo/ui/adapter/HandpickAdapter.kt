@@ -2,6 +2,10 @@ package com.x_meteor.kotlindemo.ui.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.support.v4.app.ActivityCompat
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair
 import android.view.View
 import android.view.ViewGroup
 import cn.bingoogolapple.bgabanner.BGABanner
@@ -9,8 +13,10 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.hazz.kotlinmvp.glide.GlideApp
 import com.hazz.kotlinmvp.view.recyclerview.ViewHolder
 import com.hazz.kotlinmvp.view.recyclerview.adapter.CommonAdapter
+import com.x_meteor.kotlindemo.Constants
 import com.x_meteor.kotlindemo.R
 import com.x_meteor.kotlindemo.mvp.model.bean.HandpickBean
+import com.x_meteor.kotlindemo.ui.activity.VideoDetailActivity
 import io.reactivex.Observable
 
 /**
@@ -85,7 +91,8 @@ class HandpickAdapter(context: Context, data: ArrayList<HandpickBean.Issue.Item>
         when (getItemViewType(position)) {
             //Banner
             ITEM_TYPE_BANNER -> {
-                val bannerItemData: ArrayList<HandpickBean.Issue.Item> = mData.take(bannerItemSize).toCollection(ArrayList())
+                val bannerItemData: ArrayList<HandpickBean.Issue.Item> =
+                    mData.take(bannerItemSize).toCollection(ArrayList())
                 val bannerFeedList = ArrayList<String>()
                 val bannerTitleList = ArrayList<String>()
                 //取出banner 显示的 img 和 Title
@@ -227,18 +234,19 @@ class HandpickAdapter(context: Context, data: ArrayList<HandpickBean.Issue.Item>
      * @param view
      */
     private fun goToVideoPlayer(activity: Activity, view: View, itemData: HandpickBean.Issue.Item) {
-//        val intent = Intent(activity, VideoDetailActivity::class.java)
-//        intent.putExtra(Constants.BUNDLE_VIDEO_DATA, itemData)
-//        intent.putExtra(VideoDetailActivity.TRANSITION, true)
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-//            val pair = Pair(view, VideoDetailActivity.IMG_TRANSITION)
-//            val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                activity, pair)
-//            ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
-//        } else {
-//            activity.startActivity(intent)
-//            activity.overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
-//        }
+        val intent = Intent(activity, VideoDetailActivity::class.java)
+        intent.putExtra(Constants.BUNDLE_VIDEO_DATA, itemData)
+        intent.putExtra(VideoDetailActivity.TRANSITION, true)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            val pair = Pair(view, VideoDetailActivity.IMG_TRANSITION)
+            val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                activity, pair
+            )
+            ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
+        } else {
+            activity.startActivity(intent)
+            activity.overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
+        }
     }
 
 
